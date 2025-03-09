@@ -54,13 +54,13 @@ function reducer(state, action) {
       return {
         ...state,
         questions: action.payload,
-        secondesRemining: state.questions.length * SEC_PER_SECOND,
         status: "ready",
       };
     case "ready":
       return {
         ...state,
         status: "ready",
+        secondesRemining: state.questions.length * SEC_PER_SECOND,
       };
     case "active":
       return {

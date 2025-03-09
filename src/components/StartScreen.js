@@ -3,7 +3,13 @@ function StartScreen({ dispatch }) {
     <div className='start'>
       <h3>
         Ary you ready
-        <img className='ready_emoji' src='readyEmoji.webp' alt='smile emoji' />?
+        <img
+          className='ready_emoji'
+          src='ready.webp'
+          alt='smile emoji'
+          loading='lazy'
+        />
+        ?
       </h3>
 
       <button className='btn-play' onClick={() => dispatch({ type: "active" })}>

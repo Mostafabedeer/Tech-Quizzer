@@ -3,16 +3,17 @@ function FinishScreen({ dispatch, points, totalPoints, highScore }) {
 
   let emoji;
   if (scorePercentage === 100)
-    emoji = <img src='excellentEmoji.webp' alt='excellent emoji' />;
+    emoji = <img src='excellent.webp' alt='excellent emoji' loading='lazy' />;
   if (scorePercentage >= 80 && scorePercentage < 100)
-    emoji = <img src='verygoodEmoji.webp' alt='very good emoji' />;
+    emoji = <img src='verygood.webp' alt='very good emoji' loading='lazy' />;
   if (scorePercentage >= 70 && scorePercentage < 80)
-    emoji = <img src='goodEmoji.webp' alt='good emoji' />;
+    emoji = <img src='good.webp' alt='good emoji' loading='lazy' />;
   if (scorePercentage >= 50 && scorePercentage < 70)
-    emoji = <img src='badEmoji.webp' alt='bad emoji' />;
+    emoji = <img src='bad.webp' alt='bad emoji' loading='lazy' />;
   if (scorePercentage > 0 && scorePercentage < 50)
-    emoji = <img src='dizyEmoji.webp' alt='very bad emoji' />;
-  if (points === 0) emoji = <img src='cryEmoji.webp' alt='sad emoji' />;
+    emoji = <img src='dizy.webp' alt='very bad emoji' loading='lazy' />;
+  if (points === 0)
+    emoji = <img src='cry.webp' alt='sad emoji' loading='lazy' />;
 
   const percentage = (points / totalPoints) * 100;
   return (

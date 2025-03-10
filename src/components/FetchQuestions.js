@@ -12,7 +12,6 @@ function FetchQuestions({ status, tag, difficulty, limit, dispatch }) {
             `https://quizapi.io/api/v1/questions?apiKey=${API_KEY}&category=${tag}&difficulty=${difficulty}&limit=${limit}`
           );
           const data = await res.json();
-          console.log(data);
           dispatch({
             type: "dataReceived",
             payload: data,

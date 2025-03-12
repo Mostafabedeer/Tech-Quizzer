@@ -107,18 +107,17 @@ function reducer(state, action) {
       const correctValue = answers[correctKey.replace("_correct", "")];
 
       const correctIndex = answerArray.indexOf(correctValue);
-      console.log(correctIndex, action.payload);
 
       return {
         ...state,
         answer: action.payload,
         points:
           action.payload === correctIndex
-            ? state.difficulty === "easy"
+            ? state.questions[state.index].difficulty === "Easy"
               ? state.points + 5
-              : state.difficulty === "medium"
+              : state.questions[state.index].difficulty === "Medium"
               ? state.points + 15
-              : state.difficulty === "hard"
+              : state.questions[state.index].difficulty === "Hard"
               ? state.points + 30
               : state.points
             : state.points,

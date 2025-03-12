@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 function DifficultyInput({ dispatch }) {
-  const [difficulty, setDifficulty] = useState("easy");
+  const [difficulty, setDifficulty] = useState("any");
 
   function handleAddDifficulty(e) {
     dispatch({ type: "addDifficulty", payload: difficulty });
@@ -15,6 +15,7 @@ function DifficultyInput({ dispatch }) {
           value={difficulty}
           onChange={(e) => setDifficulty(() => e.target.value)}
         >
+          <option value='any'>any</option>
           <option value='easy'>easy</option>
           <option value='medium'>medium</option>
           <option value='hard'>hard</option>

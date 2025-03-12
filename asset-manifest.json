@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/Tech-Quizzer/static/css/main.24bdeb23.css",
-    "main.js": "/Tech-Quizzer/static/js/main.154a6d3c.js",
+    "main.css": "/Tech-Quizzer/static/css/main.b18f0d96.css",
+    "main.js": "/Tech-Quizzer/static/js/main.76262d2c.js",
     "index.html": "/Tech-Quizzer/index.html",
-    "main.24bdeb23.css.map": "/Tech-Quizzer/static/css/main.24bdeb23.css.map",
-    "main.154a6d3c.js.map": "/Tech-Quizzer/static/js/main.154a6d3c.js.map"
+    "main.b18f0d96.css.map": "/Tech-Quizzer/static/css/main.b18f0d96.css.map",
+    "main.76262d2c.js.map": "/Tech-Quizzer/static/js/main.76262d2c.js.map"
   },
   "entrypoints": [
-    "static/css/main.24bdeb23.css",
-    "static/js/main.154a6d3c.js"
+    "static/css/main.b18f0d96.css",
+    "static/js/main.76262d2c.js"
   ]
 }

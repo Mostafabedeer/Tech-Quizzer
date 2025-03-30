@@ -1,6 +1,6 @@
 ### Live Demo
 
-Open [Movie-Sation](https://mostafabedeer.github.io/Tech-Quizzer/)
+Open [Tech-Quizzer](https://mostafabedeer.github.io/Tech-Quizzer/)
 
 
 https://github.com/user-attachments/assets/0f3fab3d-ea46-44c4-aa84-a7e202f09cbb

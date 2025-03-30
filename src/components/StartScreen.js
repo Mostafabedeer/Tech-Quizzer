@@ -1,4 +1,44 @@
-function StartScreen({ dispatch }) {
+import { useEffect, useState } from "react";
+import Loader from "./Loader";
+import { useQuiz } from "../contexts/QuizContext";
+import { useApiKey } from "../hooks/useApiKey";
+
+function StartScreen() {
+  const [isLoading, setIsLoading] = useState(true);
+  const { limit, difficulty, tag, dispatch } = useQuiz();
+  const API_KEY = useApiKey();
+
+  useEffect(
+    function () {
+      async function fetchQuestions() {
+        try {
+          setIsLoading(true);
+          const res = await fetch(
+            `https://quizapi.io/api/v1/questions?apiKey=${API_KEY}&category=${tag}&difficulty=${
+              difficulty === "any" ? " " : difficulty
+            }&limit=${limit}`
+          );
+
+          const data = await res.json();
+          dispatch({
+            type: "dataReceived",
+            payload: data,
+          });
+        } catch (err) {
+          dispatch({
+            type: "dataFailed",
+            payload: "An error occurred while fetching questions",
+          });
+        } finally {
+          setIsLoading(false);
+        }
+      }
+      fetchQuestions();
+    },
+    [dispatch, limit, difficulty, tag, API_KEY]
+  );
+
+  if (isLoading) return <Loader />;
   return (
     <div className='start'>
       <h3>

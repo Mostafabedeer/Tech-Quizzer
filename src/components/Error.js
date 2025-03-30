@@ -1,4 +1,7 @@
-function Error({ error }) {
+import { useQuiz } from "../contexts/QuizContext";
+
+function Error() {
+  const { error } = useQuiz();
   return (
     <div className='main_wrapperr'>
       <div className='mainn'>

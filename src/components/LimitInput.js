@@ -1,10 +1,12 @@
 import { useState } from "react";
+import { useQuiz } from "../contexts/QuizContext";
 
-function LimitInput({ dispatch }) {
+function LimitInput() {
+  const { dispatch } = useQuiz();
   const [limit, setLimit] = useState(1);
 
-  function handleAddTag() {
-    dispatch({ type: "addLimit", payload: limit });
+  function handleAddLimit() {
+    dispatch({ type: "ready", payload: limit });
   }
 
   return (
@@ -20,7 +22,7 @@ function LimitInput({ dispatch }) {
         </select>
       </label>
 
-      <button className='btn btn-shine' onClick={handleAddTag}>
+      <button className='btn btn-shine' onClick={handleAddLimit}>
         <span>Next</span>
       </button>
     </div>

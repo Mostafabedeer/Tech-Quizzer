@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { useQuiz } from "../contexts/QuizContext";
 
-function DifficultyInput({ dispatch }) {
+function DifficultyInput() {
+  const { dispatch } = useQuiz();
   const [difficulty, setDifficulty] = useState("any");
 
   function handleAddDifficulty(e) {

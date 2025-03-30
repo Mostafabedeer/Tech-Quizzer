@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
 import Loader from "./Loader";
+import { useQuiz } from "../contexts/QuizContext";
+import { useApiKey } from "../hooks/useApiKey";
 
-const API_KEY = "YCSHhbJCFG1goW63mj4f5EKNplj9F3dPo1242W2e";
-function TagInput({ dispatch }) {
+function TagInput() {
+  const { dispatch } = useQuiz();
   const [isLoading, setIsLoading] = useState(false);
-  const [tags, setTags] = useState([]);
   const [tag, setTag] = useState("Linux");
+  const [tags, setTags] = useState([]);
+  const API_KEY = useApiKey();
 
   function handleAddTag() {
     dispatch({ type: "addTag", payload: tag });
@@ -19,6 +22,11 @@ function TagInput({ dispatch }) {
           const res = await fetch(
             `https://quizapi.io/api/v1/categories?apiKey=${API_KEY}`
           );
+          if (!res.ok)
+            dispatch({
+              type: "dataFailed",
+              payload: `An error occurred while fetching tags ${res.status}`,
+            });
           const data = await res.json();
           setTags(data);
           setIsLoading(false);
@@ -31,7 +39,7 @@ function TagInput({ dispatch }) {
       }
       fetchTags();
     },
-    [dispatch]
+    [dispatch, API_KEY]
   );
 
   return (
